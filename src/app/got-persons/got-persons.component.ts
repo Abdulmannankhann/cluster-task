@@ -34,7 +34,7 @@ export class GotPersonsComponent implements OnInit {
     this.search = searchInput;
     const filteredData = this.persons.filter((person: any) => {
       if (this.search.length > 0) {
-        return person.name.toLowerCase().includes(this.search);
+        return person.name.toLowerCase().includes(this.search.toLowerCase());
       } else return person;
     });
     this.filteredPersons = filteredData;

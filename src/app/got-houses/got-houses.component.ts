@@ -35,7 +35,7 @@ export class GotHousesComponent implements OnInit {
     this.search = searchInput;
     const filteredData = this.houses.filter((house: any) => {
       if (this.search.length > 0) {
-        return house.name.toLowerCase().includes(this.search);
+        return house.name.toLowerCase().includes(this.search.toLowerCase());
       } else return house;
     });
     this.filteredHouses = filteredData;
