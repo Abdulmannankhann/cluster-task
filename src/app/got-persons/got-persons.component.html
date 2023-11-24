@@ -23,7 +23,7 @@
       routerLink="/got-persons/{{ person.slug }}"
     >
       <div class="card-header">Game of Thrones Person - {{ person.slug }}</div>
-      <div class="card-body">
+      <div class="card-body d-flex justify-content-between">
         <blockquote class="blockquote mb-0">
           <p>
             {{ person.name }}
@@ -32,6 +32,13 @@
             <cite title="Source Title">{{ person?.house?.name }}</cite>
           </footer>
         </blockquote>
+        <div>
+          <img
+            src="/assets/images/characters/{{ person.slug }}.jpg"
+            class="avatar"
+            alt="..."
+          />
+        </div>
       </div>
     </div>
   </div>
