@@ -24,14 +24,23 @@
     >
       <div class="card-header">Game of Thrones - House {{ house.slug }}</div>
       <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>
-            {{ house.name }}
-          </p>
-          <footer class="blockquote-footer">
-            Also known as <cite title="Source Title">{{ house.slug }}'s</cite>
-          </footer>
-        </blockquote>
+        <div class="d-flex justify-content-between">
+          <blockquote class="blockquote mb-0">
+            <p>
+              {{ house.name }}
+            </p>
+            <footer class="blockquote-footer">
+              Also known as <cite title="Source Title">{{ house.slug }}'s</cite>
+            </footer>
+          </blockquote>
+          <div>
+            <img
+              src="/assets/images/houses/{{ house.slug }}.jpg"
+              class="avatar"
+              alt="..."
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>

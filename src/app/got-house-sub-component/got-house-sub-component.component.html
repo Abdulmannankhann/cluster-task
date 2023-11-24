@@ -7,6 +7,15 @@
     </button>
   </h5>
   <div class="card-body">
+    <div>
+      <div><strong>House banner:&nbsp;</strong></div>
+      <img
+        *ngIf="!loader"
+        src="/assets/images/houses/{{ subHouse.slug }}.jpg"
+        class="avatar"
+        alt="banner"
+      />
+    </div>
     <h5 class="card-title">List of Members</h5>
     <ul class="list-group list-group-flush">
       <div *ngIf="loader; else elseBlock" class="d-flex justify-content-center">
