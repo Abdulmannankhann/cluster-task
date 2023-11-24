@@ -1,0 +1,60 @@
+<!-- sub-person -->
+<div *ngIf="loader; else elseBlock" class="d-flex justify-content-center mt-4">
+  <div class="spinner-grow" role="status"></div>
+  <div class="spinner-grow" role="status"></div>
+  <div class="spinner-grow" role="status"></div>
+</div>
+<ng-template #elseBlock>
+  <div class="card m-4 shadow-sm">
+    <h5 class="card-header d-flex justify-content-between align-items-center">
+      Person - {{ subPerson.name }}
+      <button
+        type="button"
+        class="btn btn-sm btn-dark"
+        routerLink="/got-persons"
+      >
+        Back
+      </button>
+    </h5>
+    <div class="card-body">
+      <div>
+        <strong>Name:&nbsp;</strong>
+        <p>{{ subPerson.name }}</p>
+      </div>
+      <div>
+        <strong>House:&nbsp;</strong>
+        <p>{{ subPerson.house.name }}</p>
+      </div>
+      <div>
+        <strong>Quotes:&nbsp;</strong>
+        <div
+          *ngIf="quotesLoader; else quoteElseBlock"
+          class="d-flex justify-content-center mt-2 mb-4"
+        >
+          <div class="spinner-grow" role="status"></div>
+          <div class="spinner-grow" role="status"></div>
+          <div class="spinner-grow" role="status"></div>
+        </div>
+        <ng-template #quoteElseBlock>
+          <ul class="list-group list-group-flush">
+            <li
+              *ngFor="let quote of quotes; index as i"
+              class="list-group-item"
+            >
+              {{ i + 1 }} - {{ quote }}
+            </li>
+          </ul></ng-template
+        >
+      </div>
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="fetchMoreQuotes()"
+        >
+          Get more quotes of {{ subPerson.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

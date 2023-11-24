@@ -12,6 +12,7 @@ import { Error404Component } from './error-404/error-404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GotHouseSubComponentComponent } from './got-house-sub-component/got-house-sub-component.component';
+import { GotPersonSubComponentComponent } from './got-person-sub-component/got-person-sub-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { GotHouseSubComponentComponent } from './got-house-sub-component/got-hou
     GotQuotesComponent,
     Error404Component,
     GotHouseSubComponentComponent,
+    GotPersonSubComponentComponent,
   ],
   imports: [
     BrowserModule,

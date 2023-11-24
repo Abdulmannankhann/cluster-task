@@ -1,19 +1,27 @@
-<div *ngIf="!showSubHouse">
-  <div class="m-4">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Search any house</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Type here..."
-        [(ngModel)]="search"
-        (ngModelChange)="onChange($event)"
-      />
-    </div>
-    <div>{{ search }}</div>
+<div class="m-4">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Search any house</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Type here..."
+      [(ngModel)]="search"
+      (ngModelChange)="onChange($event)"
+    />
   </div>
+</div>
+<div *ngIf="loader" class="d-flex justify-content-center">
+  <div class="spinner-grow" role="status"></div>
+  <div class="spinner-grow" role="status"></div>
+  <div class="spinner-grow" role="status"></div>
+</div>
+<div *ngIf="!loader">
   <div *ngFor="let house of filteredHouses; index as i" class="m-4">
-    <div class="card" (click)="handleShowSubHouse(house)" role="button">
+    <div
+      class="card shadow-sm"
+      role="button"
+      routerLink="/got-houses/{{ house.slug }}"
+    >
       <div class="card-header">Game of Thrones - House {{ house.slug }}</div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
@@ -27,10 +35,4 @@
       </div>
     </div>
   </div>
-</div>
-<div *ngIf="showSubHouse">
-  <app-got-house-sub-component
-    [handleHideSubHouse]="handleHideSubHouse"
-    [subHouse]="subHouse"
-  ></app-got-house-sub-component>
 </div>

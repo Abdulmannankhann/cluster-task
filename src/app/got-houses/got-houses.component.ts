@@ -12,6 +12,8 @@ export class GotHousesComponent implements OnInit {
   search: string = '';
   subHouse: any = {};
   showSubHouse: Boolean = false;
+  loader: Boolean = false;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -19,12 +21,13 @@ export class GotHousesComponent implements OnInit {
   }
 
   fetchHouses() {
+    this.loader = true;
     this.http
       .get('https://api.gameofthronesquotes.xyz/v1/houses')
       .subscribe((data) => {
-        console.log(data);
         this.houses = data;
         this.filteredHouses = data;
+        this.loader = false;
       });
   }
 
@@ -36,15 +39,5 @@ export class GotHousesComponent implements OnInit {
       } else return house;
     });
     this.filteredHouses = filteredData;
-  }
-
-  handleShowSubHouse(house: any) {
-    this.showSubHouse = true;
-    this.subHouse = house;
-  }
-
-  handleHideSubHouse() {
-    this.showSubHouse = false;
-    this.subHouse = {};
   }
 }
